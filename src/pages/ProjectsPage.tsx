@@ -15,6 +15,7 @@ import {
   fetchRepoLanguages,
   extractRepoNameFromUrl
 } from '../utils/githubStats';
+import { TiltCard } from '../components/TiltCard';
 
 interface ProjectsPageProps {
   onSelectProject: (proj: ProjectDetail) => void;
@@ -426,84 +427,90 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onSelectProject }) =
               const stats = repoName ? statsMap[repoName] : null;
 
               return (
-                <article
+                <TiltCard
                   key={proj.id}
-                  className="group relative p-6 rounded-xl border flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 shadow-sm hover:shadow-xl"
-                  style={{
-                    backgroundColor: 'var(--panel)',
-                    borderColor: 'var(--panel-border)'
-                  }}
+                  tiltAngle={6.5}
+                  perspective={1100}
+                  className="rounded-xl"
                 >
-                  <div
-                    className="absolute top-0 left-0 right-0 h-1 transition-transform origin-left scale-x-0 group-hover:scale-x-100"
-                    style={{ backgroundColor: 'var(--aws-orange)' }}
-                  />
+                  <article
+                    className="group relative p-6 rounded-xl border flex flex-col justify-between h-full shadow-sm hover:shadow-2xl transition-colors duration-200"
+                    style={{
+                      backgroundColor: 'var(--panel)',
+                      borderColor: 'var(--panel-border)'
+                    }}
+                  >
+                    <div
+                      className="absolute top-0 left-0 right-0 h-1 transition-transform origin-left scale-x-0 group-hover:scale-x-100"
+                      style={{ backgroundColor: 'var(--aws-orange)' }}
+                    />
 
-                  <div>
-                    <div className="text-xs font-bold tracking-wider mb-2" style={{ color: 'var(--aws-orange)' }}>
-                      {proj.number}
+                    <div>
+                      <div className="text-xs font-bold tracking-wider mb-2" style={{ color: 'var(--aws-orange)' }}>
+                        {proj.number}
+                      </div>
+                      <h3 className="text-lg font-bold mb-3" style={{ color: 'var(--text-main)' }}>
+                        {proj.title}
+                      </h3>
+                      <p className="text-xs md:text-sm leading-relaxed mb-4" style={{ color: 'var(--text-muted)' }}>
+                        {proj.description}
+                      </p>
+
+                      {/* Summary Statistics Section (Stars, Last Updated, Language Breakdown) */}
+                      <div className="mb-5">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400 block mb-1.5 opacity-90">
+                          GitHub Summary Statistics
+                        </span>
+                        <ProjectStatsSection stats={stats} />
+                      </div>
                     </div>
-                    <h3 className="text-lg font-bold mb-3" style={{ color: 'var(--text-main)' }}>
-                      {proj.title}
-                    </h3>
-                    <p className="text-xs md:text-sm leading-relaxed mb-4" style={{ color: 'var(--text-muted)' }}>
-                      {proj.description}
-                    </p>
 
-                    {/* Summary Statistics Section (Stars, Last Updated, Language Breakdown) */}
-                    <div className="mb-5">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400 block mb-1.5 opacity-90">
-                        GitHub Summary Statistics
-                      </span>
-                      <ProjectStatsSection stats={stats} />
+                    <div className="flex flex-wrap items-center gap-2 pt-4 border-t" style={{ borderColor: 'var(--panel-border)' }}>
+                      {proj.github && (
+                        <a
+                          href={proj.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded text-xs font-bold border transition-colors hover:border-amber-500"
+                          style={{ borderColor: 'var(--panel-border)', color: 'var(--text-main)' }}
+                        >
+                          <GithubIcon className="w-3.5 h-3.5" />
+                          GitHub →
+                        </a>
+                      )}
+
+                      {proj.demo && (
+                        <a
+                          href={proj.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded text-xs font-bold border transition-colors hover:border-amber-500"
+                          style={{ borderColor: 'var(--panel-border)', color: 'var(--text-main)' }}
+                        >
+                          <ExternalLink className="w-3.5 h-3.5" />
+                          Live Demo ↗
+                        </a>
+                      )}
+
+                      <button
+                        onClick={() =>
+                          onSelectProject({
+                            ...proj,
+                            stats: stats || undefined
+                          })
+                        }
+                        className="inline-flex items-center gap-1 px-3 py-1.5 rounded text-xs font-bold transition-all cursor-pointer hover:brightness-110 ml-auto"
+                        style={{
+                          backgroundColor: 'rgba(255, 153, 0, 0.15)',
+                          color: 'var(--aws-orange-light)',
+                          border: '1px solid rgba(255, 153, 0, 0.3)'
+                        }}
+                      >
+                        Details
+                      </button>
                     </div>
-                  </div>
-
-                  <div className="flex flex-wrap items-center gap-2 pt-4 border-t" style={{ borderColor: 'var(--panel-border)' }}>
-                    {proj.github && (
-                      <a
-                        href={proj.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded text-xs font-bold border transition-colors hover:border-amber-500"
-                        style={{ borderColor: 'var(--panel-border)', color: 'var(--text-main)' }}
-                      >
-                        <GithubIcon className="w-3.5 h-3.5" />
-                        GitHub →
-                      </a>
-                    )}
-
-                    {proj.demo && (
-                      <a
-                        href={proj.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded text-xs font-bold border transition-colors hover:border-amber-500"
-                        style={{ borderColor: 'var(--panel-border)', color: 'var(--text-main)' }}
-                      >
-                        <ExternalLink className="w-3.5 h-3.5" />
-                        Live Demo ↗
-                      </a>
-                    )}
-
-                    <button
-                      onClick={() =>
-                        onSelectProject({
-                          ...proj,
-                          stats: stats || undefined
-                        })
-                      }
-                      className="inline-flex items-center gap-1 px-3 py-1.5 rounded text-xs font-bold transition-all cursor-pointer hover:brightness-110 ml-auto"
-                      style={{
-                        backgroundColor: 'rgba(255, 153, 0, 0.15)',
-                        color: 'var(--aws-orange-light)',
-                        border: '1px solid rgba(255, 153, 0, 0.3)'
-                      }}
-                    >
-                      Details
-                    </button>
-                  </div>
-                </article>
+                  </article>
+                </TiltCard>
               );
             })}
           </div>
@@ -595,8 +602,11 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onSelectProject }) =
               };
 
               return (
-                <article
+                <TiltCard
                   key={repo.id}
+                  tiltAngle={5.5}
+                  perspective={1000}
+                  className="rounded-xl cursor-pointer"
                   onClick={() =>
                     onSelectProject({
                       id: repo.name,
@@ -611,45 +621,48 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onSelectProject }) =
                       stats
                     })
                   }
-                  className="group p-5 rounded-xl border flex flex-col justify-between transition-all duration-200 hover:-translate-y-1 hover:border-amber-500/50 cursor-pointer shadow-sm"
-                  style={{
-                    backgroundColor: 'var(--panel)',
-                    borderColor: 'var(--panel-border)'
-                  }}
                 >
-                  <div>
-                    <div className="flex items-center justify-between text-[11px] font-bold tracking-wider mb-2">
-                      <span style={{ color: 'var(--aws-orange)' }}>
-                        REPOSITORY {String(idx + 1).padStart(2, '0')}
-                      </span>
-                      <span className="font-semibold uppercase text-amber-400">
-                        {type === 'all' ? 'Engineering' : type.toUpperCase()}
-                      </span>
+                  <article
+                    className="group p-5 rounded-xl border flex flex-col justify-between h-full hover:border-amber-500/50 shadow-sm transition-colors duration-200"
+                    style={{
+                      backgroundColor: 'var(--panel)',
+                      borderColor: 'var(--panel-border)'
+                    }}
+                  >
+                    <div>
+                      <div className="flex items-center justify-between text-[11px] font-bold tracking-wider mb-2">
+                        <span style={{ color: 'var(--aws-orange)' }}>
+                          REPOSITORY {String(idx + 1).padStart(2, '0')}
+                        </span>
+                        <span className="font-semibold uppercase text-amber-400">
+                          {type === 'all' ? 'Engineering' : type.toUpperCase()}
+                        </span>
+                      </div>
+
+                      <h3 className="text-base font-bold mb-2 group-hover:text-amber-400 transition-colors" style={{ color: 'var(--text-main)' }}>
+                        {prettyName(repo.name)}
+                      </h3>
+
+                      <p className="text-xs leading-relaxed line-clamp-2 mb-3" style={{ color: 'var(--text-muted)' }}>
+                        {repo.description || 'Engineering project repository.'}
+                      </p>
+
+                      {/* Summary Statistics Section */}
+                      <div className="mb-2">
+                        <ProjectStatsSection stats={stats} compact />
+                      </div>
                     </div>
 
-                    <h3 className="text-base font-bold mb-2 group-hover:text-amber-400 transition-colors" style={{ color: 'var(--text-main)' }}>
-                      {prettyName(repo.name)}
-                    </h3>
-
-                    <p className="text-xs leading-relaxed line-clamp-2 mb-3" style={{ color: 'var(--text-muted)' }}>
-                      {repo.description || 'Engineering project repository.'}
-                    </p>
-
-                    {/* Summary Statistics Section */}
-                    <div className="mb-2">
-                      <ProjectStatsSection stats={stats} compact />
+                    <div className="flex items-center justify-between text-[11px] pt-3 mt-1 border-t" style={{ borderColor: 'var(--panel-border)' }}>
+                      <span className="font-semibold text-sky-400">
+                        {repo.language || 'Codebase'}
+                      </span>
+                      <span className="opacity-70 group-hover:text-amber-400 transition-colors" style={{ color: 'var(--text-muted)' }}>
+                        Click for details →
+                      </span>
                     </div>
-                  </div>
-
-                  <div className="flex items-center justify-between text-[11px] pt-3 mt-1 border-t" style={{ borderColor: 'var(--panel-border)' }}>
-                    <span className="font-semibold text-sky-400">
-                      {repo.language || 'Codebase'}
-                    </span>
-                    <span className="opacity-70 group-hover:text-amber-400 transition-colors" style={{ color: 'var(--text-muted)' }}>
-                      Click for details →
-                    </span>
-                  </div>
-                </article>
+                  </article>
+                </TiltCard>
               );
             })}
           </div>
@@ -669,60 +682,66 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onSelectProject }) =
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {troubleshootingCases.map((cs) => (
-            <article
+            <TiltCard
               key={cs.id}
-              className="p-6 rounded-xl border border-l-4 transition-all hover:-translate-y-1 shadow-sm"
-              style={{
-                backgroundColor: 'var(--panel)',
-                borderColor: 'var(--panel-border)',
-                borderLeftColor: 'var(--aws-orange)'
-              }}
+              tiltAngle={5}
+              perspective={1000}
+              className="rounded-xl"
             >
-              <div className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: 'var(--aws-orange)' }}>
-                {cs.label}
-              </div>
-              <h3 className="text-lg font-bold mb-3" style={{ color: 'var(--text-main)' }}>
-                {cs.title}
-              </h3>
-              <p className="text-xs md:text-sm leading-relaxed mb-4" style={{ color: 'var(--text-muted)' }}>
-                {cs.description}
-              </p>
-
-              <div className="flex flex-wrap gap-1.5 mb-5">
-                {cs.flow.map((step) => (
-                  <span
-                    key={step}
-                    className="px-2 py-0.5 rounded text-[11px] font-mono border"
-                    style={{
-                      backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                      borderColor: 'rgba(255, 255, 255, 0.1)',
-                      color: 'var(--text-main)'
-                    }}
-                  >
-                    {step}
-                  </span>
-                ))}
-              </div>
-
-              <button
-                onClick={() =>
-                  onSelectProject({
-                    id: cs.id,
-                    kicker: 'TROUBLESHOOTING CASE',
-                    title: cs.title,
-                    description: cs.description,
-                    tech: cs.tech,
-                    focus: cs.focus,
-                    architecture: cs.architecture
-                  })
-                }
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded text-xs font-bold border transition-colors hover:border-amber-500 cursor-pointer"
-                style={{ borderColor: 'var(--panel-border)', color: 'var(--text-main)' }}
+              <article
+                className="p-6 rounded-xl border border-l-4 h-full shadow-sm hover:shadow-xl transition-colors duration-200"
+                style={{
+                  backgroundColor: 'var(--panel)',
+                  borderColor: 'var(--panel-border)',
+                  borderLeftColor: 'var(--aws-orange)'
+                }}
               >
-                <Terminal className="w-3.5 h-3.5" />
-                View Case →
-              </button>
-            </article>
+                <div className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: 'var(--aws-orange)' }}>
+                  {cs.label}
+                </div>
+                <h3 className="text-lg font-bold mb-3" style={{ color: 'var(--text-main)' }}>
+                  {cs.title}
+                </h3>
+                <p className="text-xs md:text-sm leading-relaxed mb-4" style={{ color: 'var(--text-muted)' }}>
+                  {cs.description}
+                </p>
+
+                <div className="flex flex-wrap gap-1.5 mb-5">
+                  {cs.flow.map((step) => (
+                    <span
+                      key={step}
+                      className="px-2 py-0.5 rounded text-[11px] font-mono border"
+                      style={{
+                        backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                        borderColor: 'rgba(255, 255, 255, 0.1)',
+                        color: 'var(--text-main)'
+                      }}
+                    >
+                      {step}
+                    </span>
+                  ))}
+                </div>
+
+                <button
+                  onClick={() =>
+                    onSelectProject({
+                      id: cs.id,
+                      kicker: 'TROUBLESHOOTING CASE',
+                      title: cs.title,
+                      description: cs.description,
+                      tech: cs.tech,
+                      focus: cs.focus,
+                      architecture: cs.architecture
+                    })
+                  }
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded text-xs font-bold border transition-colors hover:border-amber-500 cursor-pointer"
+                  style={{ borderColor: 'var(--panel-border)', color: 'var(--text-main)' }}
+                >
+                  <Terminal className="w-3.5 h-3.5" />
+                  View Case →
+                </button>
+              </article>
+            </TiltCard>
           ))}
         </div>
       </section>
