@@ -1,11 +1,65 @@
-<div align="center">
+# Sathwik Ganji — Cloud & DevOps Portfolio (React + TypeScript)
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+Personal portfolio web application for **Sathwik Ganji**, Computer Science and Engineering student at Vasireddy Venkatadri Institute of Technology (VVIT) focused on **Cloud Computing, DevOps, Software Engineering, Linux, AWS, Docker, Kubernetes, Terraform, and CI/CD**.
 
-  <h1>Built with AI Studio</h2>
+Rewritten as a modern React single-page application (SPA) with TypeScript, Vite, and Tailwind CSS.
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+## 🚀 Key Features
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+* **Home:** Introduction, animated blob portrait, quick actions, and verified Credly badges link.
+* **About:** Background at VVIT, career goals (Cloud / DevOps Engineer → Cloud Solutions Architect), floating portrait with orbital rings, and interactive technology badges.
+* **Projects & Engineering Solutions:**
+  * **Featured Cloud & DevOps Projects:** Deep-dive cards for Project 16 (Monitoring), Project 15 (AWS CI/CD), Project 14 (Terraform IaC), Project 13 (Kubernetes CI/CD), Project 12 (Kubernetes Production), and Serverless Lambda.
+  * **Architecture Modal:** ASCII architecture diagrams, technology stack, engineering focus, and live demo/repo links.
+  * **Live GitHub Catalog:** Real-time repository loader querying GitHub API with multi-category filters (Cloud, DevOps, Kubernetes, Terraform, Docker, B.Tech, AI/ML) and graceful offline fallback.
+  * **Engineering & Troubleshooting Cases:** Real-world incident resolution case studies (AI Agent Timeout, Kubernetes Manifest Validation, Docker Compose Multi-Service, Service Availability).
+* **Operating Systems:** Systems administration knowledge base and diagnostics reference across Windows, Linux (Ubuntu Server), and macOS.
+* **Resume:** Embedded PDF preview, one-click PDF download, and career target summary.
+* **Contact:** Direct channels (Email, LinkedIn, Location, GitHub) and interactive message form with instant validation.
+* **Portfolio AI Assistant:** Floating chat widget connected to Sathwik's webhook with intelligent offline portfolio knowledge base.
+* **Theme Engine:** Dark and light theme switcher with persistent storage.
 
-</div>
+## 🛠️ Tech Stack
+
+* **Framework:** React 19 + TypeScript
+* **Bundler & Dev Server:** Vite 6
+* **Styling:** Tailwind CSS v4 + Custom Theme Variables & Animations
+* **Routing:** React Router v7
+* **Icons:** Lucide React & Custom Brand SVG Components
+
+## 💻 Development
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+The application runs on `http://0.0.0.0:3000`.
+
+Build for production:
+
+```bash
+npm run build
+```
+
+Lint TypeScript codebase:
+
+```bash
+npm run lint
+```
+
+## 📬 Contact
+
+* **Name:** Sathwik Ganji
+* **Email:** [ganjisathwik73@gmail.com](mailto:ganjisathwik73@gmail.com)
+* **Phone:** +91 9440547665
+* **GitHub:** [https://github.com/sathwik-svg](https://github.com/sathwik-svg)
+* **LinkedIn:** [https://www.linkedin.com/in/sathwik-svg/](https://www.linkedin.com/in/sathwik-svg/)
+* **Credly Badges:** [https://www.credly.com/users/sathwik-ganji](https://www.credly.com/users/sathwik-ganji)
