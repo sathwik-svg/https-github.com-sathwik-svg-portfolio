@@ -113,7 +113,7 @@ export const ProfilePage: React.FC = () => {
               Sathwik Ganji — Cloud &amp; DevOps Engineer
             </h2>
             <p className="text-sm md:text-base leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-              I am a <strong>Computer Science &amp; Engineering student at Vasireddy Venkatadri Institute of Technology (VVIT)</strong> with a focused specialization in cloud infrastructure, container orchestration, and automated continuous delivery.
+              I am a <strong>Computer Science &amp; Engineering student at Vasireddy Venkatadri International Technological University (VVITU)</strong> with a focused specialization in cloud infrastructure, container orchestration, and automated continuous delivery.
             </p>
             <p className="text-sm md:text-base leading-relaxed" style={{ color: 'var(--text-muted)' }}>
               My engineering philosophy revolves around <strong>reproducibility</strong> (Infrastructure as Code via Terraform), <strong>reliability</strong> (proactive observability with Prometheus &amp; Grafana), and <strong>velocity</strong> (automated CI/CD pipelines via GitHub Actions).
@@ -122,7 +122,7 @@ export const ProfilePage: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 text-xs md:text-sm">
               <div className="flex items-center gap-2" style={{ color: 'var(--text-main)' }}>
                 <GraduationCap className="w-4 h-4 text-blue-400 shrink-0" />
-                <span><strong>Education:</strong> B.Tech CSE, VVIT</span>
+                <span><strong>Education:</strong> B.Tech CSE, VVITU</span>
               </div>
               <div className="flex items-center gap-2" style={{ color: 'var(--text-main)' }}>
                 <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />

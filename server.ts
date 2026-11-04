@@ -29,7 +29,7 @@ You are the official Portfolio AI Assistant for Sathwik Ganji. Your mission is t
 
 PROFILE SUMMARY:
 - Name: Sathwik Ganji
-- Education: B.Tech in Computer Science & Engineering at Vasireddy Venkatadri Institute of Technology (VVIT), Andhra Pradesh, India.
+- Education: B.Tech in Computer Science & Engineering at Vasireddy Venkatadri International Technological University (VVITU), Andhra Pradesh, India.
 - Focus: Cloud Computing, DevOps, Software Engineering, Linux administration, AWS, Docker, Kubernetes, Terraform, and CI/CD automation.
 - Career Goal: Cloud Engineer, DevOps Engineer, Site Reliability Engineer (SRE), and long-term Cloud Solutions Architect.
 - Email: ganjisathwik73@gmail.com
@@ -76,7 +76,7 @@ function generateKnowledgeResponse(userMessage: string): string {
    - **Project 15 (Advanced AWS CI/CD)**: Complete automated build, test, and containerized deployment with Docker & GitHub Actions.
    - **Project 14 (Terraform AWS Infrastructure)**: Reproducible Infrastructure as Code (IaC) provisioning.
    - **Project 13 & 12 (Kubernetes CI/CD & Production Orchestration)**: Stateful microservices with PostgreSQL & Redis.
-3. **Academic Background**: Pursuing B.Tech in Computer Science & Engineering at Vasireddy Venkatadri Institute of Technology (VVIT).`;
+3. **Academic Background**: Pursuing B.Tech in Computer Science & Engineering at Vasireddy Venkatadri International Technological University (VVITU).`;
   }
 
   if (q.includes('problem') || q.includes('solving') || q.includes('debug') || q.includes('troubleshoot')) {
@@ -112,7 +112,7 @@ Engineering is as much about clear communication as it is about writing code:
 
   return `### 🤖 Sathwik Ganji — Profile Overview
 
-Sathwik is a **Cloud & DevOps Engineer** and Computer Science student at **Vasireddy Venkatadri Institute of Technology (VVIT)**.
+Sathwik is a **Cloud & DevOps Engineer** and Computer Science student at **Vasireddy Venkatadri International Technological University (VVITU)**.
 
 - **Core Stack**: AWS, Docker, Kubernetes, Terraform, Linux (Ubuntu), GitHub Actions CI/CD, Python, and Prometheus/Grafana.
 - **Track Record**: 16+ engineering projects, production CI/CD pipelines, and verified AWS credentials on Credly.

@@ -1,13 +1,13 @@
 # Sathwik Ganji — Cloud & DevOps Portfolio (React + TypeScript)
 
-Personal portfolio web application for **Sathwik Ganji**, Computer Science and Engineering student at Vasireddy Venkatadri Institute of Technology (VVIT) focused on **Cloud Computing, DevOps, Software Engineering, Linux, AWS, Docker, Kubernetes, Terraform, and CI/CD**.
+Personal portfolio web application for **Sathwik Ganji**, Computer Science and Engineering student at Vasireddy Venkatadri International Technological University (VVITU) focused on **Cloud Computing, DevOps, Software Engineering, Linux, AWS, Docker, Kubernetes, Terraform, and CI/CD**.
 
 Rewritten as a modern React single-page application (SPA) with TypeScript, Vite, and Tailwind CSS.
 
 ## 🚀 Key Features
 
 * **Home:** Introduction, animated blob portrait, quick actions, and verified Credly badges link.
-* **About:** Background at VVIT, career goals (Cloud / DevOps Engineer → Cloud Solutions Architect), floating portrait with orbital rings, and interactive technology badges.
+* **About:** Background at VVITU, career goals (Cloud / DevOps Engineer → Cloud Solutions Architect), floating portrait with orbital rings, and interactive technology badges.
 * **Projects & Engineering Solutions:**
   * **Featured Cloud & DevOps Projects:** Deep-dive cards for Project 16 (Monitoring), Project 15 (AWS CI/CD), Project 14 (Terraform IaC), Project 13 (Kubernetes CI/CD), Project 12 (Kubernetes Production), and Serverless Lambda.
   * **Architecture Modal:** ASCII architecture diagrams, technology stack, engineering focus, and live demo/repo links.

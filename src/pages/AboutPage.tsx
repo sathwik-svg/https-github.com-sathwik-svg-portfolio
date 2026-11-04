@@ -55,7 +55,7 @@ export const AboutPage: React.FC = () => {
           </h2>
 
           <p className="text-base md:text-lg leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-            I am a <strong className="font-semibold" style={{ color: 'var(--text-main)' }}>Computer Science and Engineering student at Vasireddy Venkatadri Institute of Technology (VVIT)</strong>, focused on Cloud Computing, DevOps and Software Engineering.
+            I am a <strong className="font-semibold" style={{ color: 'var(--text-main)' }}>Computer Science and Engineering student at Vasireddy Venkatadri International Technological University (VVITU)</strong>, focused on Cloud Computing, DevOps and Software Engineering.
           </p>
 
           <p className="text-base md:text-lg leading-relaxed" style={{ color: 'var(--text-muted)' }}>
@@ -68,7 +68,7 @@ export const AboutPage: React.FC = () => {
 
           <div className="flex items-center gap-2 pt-2 text-sm font-medium" style={{ color: 'var(--text-main)' }}>
             <GraduationCap className="w-5 h-5 text-blue-500" />
-            <span><strong>Education:</strong> B.Tech — Computer Science &amp; Engineering, VVIT</span>
+            <span><strong>Education:</strong> B.Tech — Computer Science &amp; Engineering, VVITU</span>
           </div>
 
           {/* Interactive Tech Orbit Badges */}

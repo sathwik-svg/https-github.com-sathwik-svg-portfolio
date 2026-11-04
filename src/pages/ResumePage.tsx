@@ -1,5 +1,6 @@
 import React from 'react';
 import { Download, FileText, CheckCircle, ExternalLink, Award } from 'lucide-react';
+import { ATSScoreSection } from '../components/ATSScoreSection';
 
 export const ResumePage: React.FC = () => {
   const resumePdfPath = '/assets/documents/resume.pdf';
@@ -73,7 +74,7 @@ export const ResumePage: React.FC = () => {
             Education
           </h3>
           <p className="text-base font-bold" style={{ color: 'var(--text-main)' }}>
-            Vasireddy Venkatadri Institute of Technology (VVIT)
+            Vasireddy Venkatadri International Technological University (VVITU)
           </p>
           <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
             B.Tech in Computer Science &amp; Engineering
@@ -92,6 +93,9 @@ export const ResumePage: React.FC = () => {
           </p>
         </div>
       </div>
+
+      {/* ATS Resume Readiness Score Section */}
+      <ATSScoreSection />
 
       {/* Embedded PDF Viewer Container */}
       <div
