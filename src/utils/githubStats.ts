@@ -173,3 +173,87 @@ export function extractRepoNameFromUrl(githubUrl?: string): string | null {
   const parts = githubUrl.split('/');
   return parts[parts.length - 1] || null;
 }
+
+const readmeCache = new Map<string, string>();
+
+export async function fetchRepoReadme(repoName: string): Promise<string> {
+  // Check memory cache
+  if (readmeCache.has(repoName)) {
+    return readmeCache.get(repoName)!;
+  }
+
+  // Check sessionStorage
+  try {
+    const cached = sessionStorage.getItem(`gh_readme_${repoName}`);
+    if (cached) {
+      readmeCache.set(repoName, cached);
+      return cached;
+    }
+  } catch {
+    // ignore
+  }
+
+  // 1. Try official GitHub API raw readme endpoint
+  try {
+    const res = await fetch(`https://api.github.com/repos/sathwik-svg/${repoName}/readme`, {
+      headers: {
+        Accept: 'application/vnd.github.v3.raw'
+      }
+    });
+
+    if (res.ok) {
+      const text = await res.text();
+      if (text && text.trim()) {
+        readmeCache.set(repoName, text);
+        try {
+          sessionStorage.setItem(`gh_readme_${repoName}`, text);
+        } catch {
+          // ignore
+        }
+        return text;
+      }
+    }
+  } catch {
+    // fallback to raw.githubusercontent.com
+  }
+
+  // 2. Try raw.githubusercontent.com for main branch
+  try {
+    const res = await fetch(`https://raw.githubusercontent.com/sathwik-svg/${repoName}/main/README.md`);
+    if (res.ok) {
+      const text = await res.text();
+      if (text && text.trim()) {
+        readmeCache.set(repoName, text);
+        try {
+          sessionStorage.setItem(`gh_readme_${repoName}`, text);
+        } catch {
+          // ignore
+        }
+        return text;
+      }
+    }
+  } catch {
+    // fallback to master
+  }
+
+  // 3. Try raw.githubusercontent.com for master branch
+  try {
+    const res = await fetch(`https://raw.githubusercontent.com/sathwik-svg/${repoName}/master/README.md`);
+    if (res.ok) {
+      const text = await res.text();
+      if (text && text.trim()) {
+        readmeCache.set(repoName, text);
+        try {
+          sessionStorage.setItem(`gh_readme_${repoName}`, text);
+        } catch {
+          // ignore
+        }
+        return text;
+      }
+    }
+  } catch {
+    // ignore
+  }
+
+  throw new Error(`README.md not found or unavailable for ${repoName}`);
+}
