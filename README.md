@@ -55,6 +55,27 @@ Lint TypeScript codebase:
 npm run lint
 ```
 
+## 🌐 Render Deployment (`render.yaml`)
+
+This repository is configured for automated deployment on [Render](https://render.com).
+
+* **Runtime:** Node.js Web Service
+* **Build Command:** `npm install && npm run build`
+* **Start Command:** `npm start` (runs `tsx server.ts`)
+* **Environment Variables:**
+  * `NODE_ENV`: `production`
+  * `PORT`: Automatically assigned by Render (default fallback `3000`)
+  * `GEMINI_API_KEY`: *(Optional)* Sathwik AI Assistant Gemini API key. If omitted, the assistant seamlessly runs the embedded local knowledge engine!
+
+### Deploying to Render:
+1. Push your latest commits to GitHub:
+   ```bash
+   git add .
+   git commit -m "Configure Render deployment and full-stack portfolio features"
+   git push origin main
+   ```
+2. Render detects the push and uses `render.yaml` to build and serve the application automatically at `https://portfolio-wuht.onrender.com`.
+
 ## 📬 Contact
 
 * **Name:** Sathwik Ganji

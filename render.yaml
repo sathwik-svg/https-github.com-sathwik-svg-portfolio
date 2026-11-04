@@ -1,0 +1,14 @@
+services:
+  # Web Service running the Node.js/Express server + Vite frontend + /api/ai-assistant
+  - type: web
+    name: sathwik-portfolio
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: GEMINI_API_KEY
+        sync: false
