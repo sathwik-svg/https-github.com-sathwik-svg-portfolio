@@ -10,6 +10,7 @@ import { ProjectsPage } from './pages/ProjectsPage';
 import { OperatingSystemsPage } from './pages/OperatingSystemsPage';
 import { ResumePage } from './pages/ResumePage';
 import { ContactPage } from './pages/ContactPage';
+import { ProfilePage } from './pages/ProfilePage';
 import { ProjectDetail } from './types';
 
 // Scroll to top on route change
@@ -57,6 +58,7 @@ export const App: React.FC = () => {
       <main className="flex-1 flex flex-col z-10">
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/profile" element={<ProfilePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route
             path="/projects"

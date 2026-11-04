@@ -1,4 +1,7 @@
 {
   "name": "Sathwik Ganji Portfolio",
-  "description": "Cloud & DevOps Engineer portfolio showcasing AWS, Terraform, Kubernetes, Docker, CI/CD, Linux, systems engineering, and interactive project catalog."
+  "description": "Cloud & DevOps Engineer portfolio showcasing AWS, Terraform, Kubernetes, Docker, CI/CD, Linux, systems engineering, and interactive project catalog.",
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }

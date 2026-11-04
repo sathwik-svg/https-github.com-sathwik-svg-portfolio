@@ -1,6 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Award, Cloud, Server, ShieldCheck, Terminal, Cpu } from 'lucide-react';
+import {
+  ArrowRight,
+  Award,
+  Cloud,
+  Server,
+  ShieldCheck,
+  Terminal,
+  Cpu,
+  Sparkles,
+  Puzzle,
+  MessageSquare,
+  CheckCircle2
+} from 'lucide-react';
 
 export const HomePage: React.FC = () => {
   return (
@@ -34,13 +46,26 @@ export const HomePage: React.FC = () => {
             CI/CD, Linux, and modern cloud technologies. Welcome to my portfolio.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-3.5">
             <Link
-              to="/resume"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg font-bold text-sm transition-all hover:scale-105 cursor-pointer shadow-lg"
+              to="/profile"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-bold text-sm transition-all hover:scale-105 cursor-pointer shadow-lg"
               style={{
                 backgroundColor: 'var(--btn-bg)',
                 color: 'var(--btn-text)'
+              }}
+            >
+              <Sparkles className="w-4 h-4 text-amber-300" />
+              Explore Profile &amp; AI Explainer
+            </Link>
+
+            <Link
+              to="/resume"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-bold text-sm transition-all hover:scale-105 border cursor-pointer"
+              style={{
+                backgroundColor: 'var(--btn-sec-bg)',
+                color: 'var(--btn-sec-text)',
+                borderColor: 'var(--btn-sec-border)'
               }}
             >
               View Resume
@@ -49,11 +74,11 @@ export const HomePage: React.FC = () => {
 
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg font-bold text-sm transition-all hover:scale-105 border cursor-pointer"
+              className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl font-bold text-sm transition-all hover:scale-105 border cursor-pointer opacity-85 hover:opacity-100"
               style={{
-                backgroundColor: 'var(--btn-sec-bg)',
-                color: 'var(--btn-sec-text)',
-                borderColor: 'var(--btn-sec-border)'
+                backgroundColor: 'transparent',
+                color: 'var(--text-main)',
+                borderColor: 'var(--panel-border)'
               }}
             >
               Let's Talk
@@ -84,6 +109,57 @@ export const HomePage: React.FC = () => {
               className="relative w-64 h-64 md:w-80 md:h-80 object-cover hero-image-blob shadow-2xl border-4"
               style={{ borderColor: 'var(--btn-sec-border)' }}
             />
+          </div>
+        </div>
+      </section>
+
+      {/* Core Competencies & AI Assistant Banner */}
+      <section className="w-full max-w-6xl mx-auto px-6 py-12">
+        <div
+          className="p-8 md:p-12 rounded-3xl border shadow-xl relative overflow-hidden"
+          style={{
+            background: 'linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(124, 58, 237, 0.08))',
+            borderColor: 'rgba(124, 58, 237, 0.25)'
+          }}
+        >
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+            <div className="space-y-4 max-w-2xl">
+              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-purple-400">
+                <Sparkles className="w-4 h-4 text-amber-300" /> Interactive Profile Explainer
+              </div>
+              <h2 className="text-2xl md:text-3xl font-bold" style={{ color: 'var(--text-main)' }}>
+                Understand My Engineering Strengths &amp; Problem-Solving
+              </h2>
+              <p className="text-sm md:text-base leading-relaxed opacity-85" style={{ color: 'var(--text-muted)' }}>
+                Explore my structured problem-solving framework, clear architectural communication style, and let the integrated AI assistant synthesize my achievements and top projects.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs font-semibold">
+                <div className="flex items-center gap-2" style={{ color: 'var(--text-main)' }}>
+                  <Award className="w-4 h-4 text-amber-400" />
+                  <span>Verified Credentials</span>
+                </div>
+                <div className="flex items-center gap-2" style={{ color: 'var(--text-main)' }}>
+                  <Puzzle className="w-4 h-4 text-blue-400" />
+                  <span>Root-Cause Solving</span>
+                </div>
+                <div className="flex items-center gap-2" style={{ color: 'var(--text-main)' }}>
+                  <MessageSquare className="w-4 h-4 text-emerald-400" />
+                  <span>Clear Communication</span>
+                </div>
+              </div>
+            </div>
+
+            <Link
+              to="/profile"
+              className="inline-flex items-center gap-2 px-6 py-4 rounded-xl font-bold text-sm tracking-wide text-white transition-all hover:scale-105 shadow-xl shrink-0"
+              style={{
+                background: 'linear-gradient(135deg, #2563eb, #7c3aed)'
+              }}
+            >
+              View Full Profile &amp; AI Explainer
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>
